@@ -18,27 +18,33 @@ class LineComparison
         $this->pointY2 = readline("Enter line Y2 coordinates : ");
     }
 
-      /**
-	 * lengthOfLine method is used to calculate length of line
-	 * @return distance
-	 */
+    /**
+     * lengthOfLine method is used to calculate length of line
+     * @return distance
+     */
     public function lengthOfLine()
     {
         //using pow() and sqrt() in build function
         // formula for distance d = \sqrt{(x_2 - x_1)^2 + (y_2-y_1)^2}
         $distance = sqrt(
             pow(($this->pointX2 - $this->pointX1), 2) +
-            pow(($this->pointY2 - $this->pointY1), 2));
+                pow(($this->pointY2 - $this->pointY1), 2)
+        );
         return $distance;
     }
 
-    //creating checkEquality function to compare both line and check lines are equal or not
-    public function checkEquality($line1, $line2) {
+     /**
+	 * checkEquality method is used to check lines equal or not
+	 * @param line1,line2
+	 */
+    public function checkEquality($line1, $line2)
+    {
         if ($line1 == $line2) {
             echo "both line length are equal";
-        } else {
-            echo "lines length are different";
-        }
+        } elseif ($line1 > $line2) {
+            echo "Line1 is Greater than Line2";
+        } else
+            echo "Line2 is Greater than Line1";
     }
 }
 
@@ -53,5 +59,3 @@ $line2 = $calculateLength->lengthOfLine();
 echo "Length of line2 is :"  . round($line2, 2) . "\n";
 
 $calculateLength->checkEquality($line1, $line2);
-
-?>
